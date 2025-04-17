@@ -2,16 +2,18 @@ class Card {
     constructor(suit, rank) {
         this.suit = suit;
         this.rank = rank;
-
+        this.faceUp=false;
 
         this.element=document.createElement("div");
         this.element.className="card";
 
 
         // Todo: add middle component later
+
         
         this.element.innerHTML=`
-        <div class="card-inner"> 
+        <div class="card-inner ">
+           
             <div class="card-front ${this.suit.color}">
                 <div class="card-corner top-left">
                 <div>${this.rank}</div>
@@ -26,8 +28,17 @@ class Card {
         </div>
         `;
 
+        
+
+
         const preview = document.getElementById("preview");
         preview.appendChild(this.element);
+
+        // Flips card(s) to the other state (e.g. face up -> face down)
+        this.element.addEventListener("click", () => {
+            this.faceUp = !this.faceUp
+            this.element.classList.toggle("flipped");
+        });
     }
 }
 
@@ -47,12 +58,12 @@ function createCardElement(suits, ranks) {
 
 
 /** 
- *  what the function does
+ *  Flips card(s) to the other state (e.g. face up -> face down)
  *  @param
  *  @return 
  */
 function flip() {
-
+    
 }
 
 function main(){
