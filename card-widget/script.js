@@ -2,33 +2,31 @@ class Card {
     constructor(suit, rank) {
         this.suit = suit;
         this.rank = rank;
-        this.faceUp=false;
+        this.faceUp = false;
 
-        this.element=document.createElement("div");
-        this.element.className="card";
+        this.element = document.createElement("div");
+        this.element.className = "card";
 
 
         // Todo: add middle component later
 
-        
-        this.element.innerHTML=`
+
+        this.element.innerHTML = `
         <div class="card-inner ">
            
             <div class="card-front ${this.suit.color}">
                 <div class="card-corner top-left">
-                <div>${this.rank}</div>
-                <div>${this.suit.symbol}</div>
+                    <div>${this.rank}</div>
+                    <div>${this.suit.symbol}</div>
                 </div>
                 <div class="card-corner bottom-right">
-                <div>${this.rank}</div>
-                <div>${this.suit.symbol}</div>
+                    <div>${this.rank}</div>
+                    <div>${this.suit.symbol}</div>
                 </div>
             </div>
             <div class="card-back"></div>
         </div>
         `;
-
-        
 
 
         const preview = document.getElementById("preview");
@@ -49,8 +47,8 @@ class Card {
  *  @return 
  */
 function createCardElement(suits, ranks) {
-    for(let i = 0; i < suits.length; i++) {
-        for(let j = 0; j < ranks.length; j++) {
+    for (let i = 0; i < suits.length; i++) {
+        for (let j = 0; j < ranks.length; j++) {
             new Card(suits[i], ranks[j]);
         }
     }
@@ -63,22 +61,22 @@ function createCardElement(suits, ranks) {
  *  @return 
  */
 function flip() {
-    
+
 }
 
-function main(){
+function main() {
     const suits = [
         { symbol: '♠', color: 'black' },
-        { symbol: '♣', color: 'black' }, 
+        { symbol: '♣', color: 'black' },
         { symbol: '♥', color: 'red' },
-        { symbol: '♦', color: 'red' }, 
+        { symbol: '♦', color: 'red' },
     ];
 
-    const ranks = ["A","2","3","4","5","6","7","8","9","10","J", "Q", "K"];
+    const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
-    createCardElement(suits,ranks);
+    createCardElement(suits, ranks);
 
-    
+
 }
 
 main();
