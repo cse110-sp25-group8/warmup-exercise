@@ -114,10 +114,16 @@
     font-family: 'Roboto Slab', serif;
   }
   
-  /* Card Front (Diamond) */
-  .card-front {
-    background: #fff;
+  /* Card Front */
+  .card-front.red {
+    background-color: white; 
     color: #b30000;
+    position: relative;
+  }
+
+  .card-front.black {
+    background-color: white;
+    color: black;
     position: relative;
   }
   
@@ -133,7 +139,7 @@
   }
   
   /* Card Corners */
-  .corner {
+  .card-corner {
     position: absolute;
     font-size: 0.95rem;
     line-height: 1.1;

@@ -2,13 +2,17 @@ class Card {
     constructor(suit, rank) {
         this.suit = suit;
         this.rank = rank;
-        //
+
 
         this.element=document.createElement("div");
         this.element.className="card";
+
+
+        // Todo: add middle component later
+        
         this.element.innerHTML=`
         <div class="card-inner"> 
-            <div class="card-front">
+            <div class="card-front ${this.suit.color}">
                 <div class="card-corner top-left">
                 <div>${this.rank}</div>
                 <div>${this.suit.symbol}</div>
@@ -22,16 +26,15 @@ class Card {
         </div>
         `;
 
-
         const preview = document.getElementById("preview");
         preview.appendChild(this.element);
-        
     }
 }
 
 /** 
- *  what the function does
- *  @param
+ *  Creates the card deck
+ *  @param {}
+ *  @param {}
  *  @return 
  */
 function createCardElement(suits, ranks) {
@@ -57,7 +60,7 @@ function main(){
         { symbol: '♠', color: 'black' },
         { symbol: '♣', color: 'black' }, 
         { symbol: '♥', color: 'red' },
-        { symbol: '♦', color: 'red' }, // diamonds
+        { symbol: '♦', color: 'red' }, 
     ];
 
     const ranks = ["A","2","3","4","5","6","7","8","9","10","J", "Q", "K"];
