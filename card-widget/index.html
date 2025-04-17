@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>🃏 Card Widgets</title>
+    <!-- your styles -->
     <link rel="stylesheet" href="style.css">
+    <!-- Roboto Slab for card faces -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
 </head>
-
 <body>
+    <header>
+        <h1>🃏 Card Widgets</h1>
+        <p>
+        All cards are shown below. Click to flip; use the buttons to shuffle or
+        flip all. Hit reset to unshuffle!
+        </p>
+    </header>
+
+    <div class="buttons">
+        <button class="shuffle">Shuffle</button>
+        <button class="flip">Flip All</button>
+        <!-- if we have time maybe a reset button? -->
+        <!-- <button class="reset">Reset</button> -->
+    
+    </div>
+
+    <p class="count">
+        Card Count: <span id="card-count"></span>
+    </p>
+
+    <!-- cards will be injected here by script.js -->
+    <div id="preview"></div>
+
+    <!-- your functionality -->
     <script src="script.js"></script>
 </body>
-
 </html>
