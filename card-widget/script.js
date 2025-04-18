@@ -5,7 +5,7 @@ class Card {
      * @param {Object} suit - symbol and color of the card
      * @param {string} suit.symbol - the card's symbol
      * @param {string} suit.color - the card's color
-     * @param {string[]} rank - the card's value
+     * @param {string} rank - the card's value
      */
     constructor(suit, rank) {
         this.suit = suit;
@@ -15,11 +15,20 @@ class Card {
         this.element = document.createElement("div");
         this.element.className = "card";
 
-        // Todo: add middle component later
+        this._render();
 
+        this.element.classList.toggle('flipped', !this.faceUp);
+
+        this.element.addEventListener("click", () => this.flip());
+        document.getElementById("preview").appendChild(this.element);
+
+        // ToDo: add middle component later
+    }
+
+    _render() {
         this.element.innerHTML = `
         <div class="card-inner ">
-           
+            
             <div class="card-front ${this.suit.color}">
                 <div class="card-corner top-left">
                     <div>${this.rank}</div>
@@ -33,17 +42,30 @@ class Card {
             <div class="card-back"></div>
         </div>
         `;
-
-
-        const preview = document.getElementById("preview");
-        preview.appendChild(this.element);
-
-        // Flips card(s) to the other state (e.g. face up -> face down)
-        this.element.addEventListener("click", () => {
-            this.faceUp = !this.faceUp
-            this.element.classList.toggle("flipped");
-        });
     }
+
+    /** 
+     * Flips the card to opposite side
+     */
+    flip() {
+        this.faceUp = !this.faceUp;
+        this.element.classList.toggle('flipped', !this.faceUp);
+    }
+
+    /** 
+     *  If the card is hided, reveal
+     */
+    reveal() {
+        if (!this.faceUp) this.flip();
+    }
+
+    /** 
+     *  If the card is revealed, hide
+     */
+    hide() {
+        if (this.faceUp) this.flip();
+    }
+
 }
 
 class Deck {
@@ -76,7 +98,7 @@ class Deck {
                 cards.push(card);
             }
         }
-        return cards; 
+        return cards;
     }
 
     /** 
@@ -84,7 +106,7 @@ class Deck {
      */
     shuffle() {
         for (let i = this.cards.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i+1));
+            const j = Math.floor(Math.random() * (i + 1));
             [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
     }
@@ -98,7 +120,7 @@ function main() {
         preview.innerHTML = "";
         deck.shuffle();
         deck.cards.forEach(c => preview.appendChild(c.element));
-      });
+    });
 }
 
 main();
