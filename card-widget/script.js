@@ -40,6 +40,8 @@ class Card {
     }
 }
 
+let allCards = [];
+
 /** 
  *  Creates the card deck
  *  @param {}
@@ -47,11 +49,16 @@ class Card {
  *  @return 
  */
 function createCardElement(suits, ranks) {
+    const cards = [];
+
     for (let i = 0; i < suits.length; i++) {
         for (let j = 0; j < ranks.length; j++) {
-            new Card(suits[i], ranks[j]);
+            const card = new Card(suits[i], ranks[j]);
+           //new Card(suits[i], ranks[j]);
+            cards.push(card);
         }
     }
+    return cards; 
 }
 
 
@@ -74,7 +81,6 @@ function shuffle(cards) {
     for (let i = cards.length - 1; i > 0; i--){
         const j = Math.floor(Math.random() * (i+1));
         [cards[i], cards[j]] = [cards[j], cards[i]];
-
     }
 }
 
@@ -89,17 +95,13 @@ function main() {
     const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
 
     
-    createCardElement(suits, ranks);
+    allCards = createCardElement(suits, ranks);
 
-    const cards = [];
-    for(let i = 0; i < suits.length; i++) {
-        for(let j = 0; j < ranks.length; j++) {
-            cards.push(new Card(suits[i], ranks[j]));
-        }
-    }
-
-    shuffle(cards);
+    document.getElementsByClassName("shuffle")[0].addEventListener("click", () => {
+        preview.innerHTML = "";
+        shuffle(allCards);
+        allCards.forEach(c => preview.appendChild(c.element));
+      });
 }
 
 main();
-
