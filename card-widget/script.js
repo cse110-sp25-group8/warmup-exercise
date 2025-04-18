@@ -1,4 +1,12 @@
 class Card {
+    /**
+     * Represents a single playing card.
+     * @constructor
+     * @param {Object} suit - symbol and color of the card
+     * @param {string} suit.symbol - the card's symbol
+     * @param {string} suit.color - the card's color
+     * @param {string[]} rank - the card's value
+     */
     constructor(suit, rank) {
         this.suit = suit;
         this.rank = rank;
@@ -7,9 +15,7 @@ class Card {
         this.element = document.createElement("div");
         this.element.className = "card";
 
-
         // Todo: add middle component later
-
 
         this.element.innerHTML = `
         <div class="card-inner ">
@@ -40,67 +46,58 @@ class Card {
     }
 }
 
-let allCards = [];
+class Deck {
+    /**
+     * Represents a playing card deck.
+     * @constructor
+     */
+    constructor() {
+        this.cards = this.createDeck();
+    }
 
-/** 
- *  Creates the card deck
- *  @param {}
- *  @param {}
- *  @return 
- */
-function createCardElement(suits, ranks) {
-    const cards = [];
+    /** 
+     *  Creates an unshuffled standard playing card deck with 52 cards and the
+     *  respective suits.
+     *  @return {Card[]} - unshuffled standard Card array
+     */
+    createDeck() {
+        const suits = [
+            { symbol: '♠', color: 'black' },
+            { symbol: '♣', color: 'black' },
+            { symbol: '♥', color: 'red' },
+            { symbol: '♦', color: 'red' },
+        ];
+        const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+        const cards = [];
 
-    for (let i = 0; i < suits.length; i++) {
-        for (let j = 0; j < ranks.length; j++) {
-            const card = new Card(suits[i], ranks[j]);
-           //new Card(suits[i], ranks[j]);
-            cards.push(card);
+        for (let i = 0; i < suits.length; i++) {
+            for (let j = 0; j < ranks.length; j++) {
+                const card = new Card(suits[i], ranks[j]);
+                cards.push(card);
+            }
+        }
+        return cards; 
+    }
+
+    /** 
+     *  Shuffles the cards using Fisher-Yates algorithm
+     */
+    shuffle() {
+        for (let i = this.cards.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i+1));
+            [this.cards[i], this.cards[j]] = [this.cards[j], this.cards[i]];
         }
     }
-    return cards; 
-}
 
-
-/** 
- *  Flips card(s) to the other state (e.g. face up -> face down)
- *  @param
- *  @return 
- */
-function flip() {
-
-}
-
-/** 
- *  Shuffles the cards using Fisher-Yates algorithm
- *  @param {}
- *  @return 
- */
-
-function shuffle(cards) {
-    for (let i = cards.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i+1));
-        [cards[i], cards[j]] = [cards[j], cards[i]];
-    }
 }
 
 function main() {
-    const suits = [
-        { symbol: '♠', color: 'black' },
-        { symbol: '♣', color: 'black' },
-        { symbol: '♥', color: 'red' },
-        { symbol: '♦', color: 'red' },
-    ];
-
-    const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
-
-    
-    allCards = createCardElement(suits, ranks);
+    let deck = new Deck();
 
     document.getElementsByClassName("shuffle")[0].addEventListener("click", () => {
         preview.innerHTML = "";
-        shuffle(allCards);
-        allCards.forEach(c => preview.appendChild(c.element));
+        deck.shuffle();
+        deck.cards.forEach(c => preview.appendChild(c.element));
       });
 }
 
