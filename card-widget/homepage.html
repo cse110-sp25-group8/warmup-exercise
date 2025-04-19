@@ -1,0 +1,53 @@
+<!-- homepage.html
+Kiet Dang
+4/19/2025
+Working on Home Page, imiting what is on Figma.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🃏 Black Jack</title>
+
+    <!-- your styles -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Roboto Slab for card faces -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class = "start-button">
+        <h1>🃏 Black Jack</h1>
+        <p>
+        LET'S GO GAMBLING
+        </p>
+        <button class="begin" id="tableButton">Take me to the table!</button>
+    </header>
+
+
+    <!-- The sound doesn't play... somehow -->
+    <script>
+        const button = document.getElementById("tableButton");
+        const sound = new Audio("lets-go-gambling.mp3");
+    
+        button.addEventListener("click", function (e) {
+          e.preventDefault(); // Prevent auto-navigation
+          sound.currentTime = 0;
+    
+          // Try playing the sound and wait before redirecting
+          sound.play().then(() => {
+            setTimeout(() => {
+              window.location.href = "index.html";
+            }, 1000); // adjust to sound length
+          }).catch(error => {
+            console.error("Audio playback failed:", error);
+            // Still redirect if audio fails
+            window.location.href = "index.html";
+          });
+        });
+      </script>
+    
+</body>
+</html>
