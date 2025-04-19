@@ -120,32 +120,50 @@ button:hover {
 
 /* Card Front */
 .card-front.red {
-  background-color: white;
+  background-color: #f4e8d4;
   color: #b30000;
   position: relative;
 }
 
 .card-front.black {
-  background-color: white;
+  background-color: #f4e8d4;
   color: black;
   position: relative;
 }
 
 /* Card Back */
 .card-back {
-  background: linear-gradient(45deg, #1b1b1b, #444);
+
   color: #fff;
   transform: rotateY(180deg);
   font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  background-color: #ebe6de;
+  background-image:
+    repeating-linear-gradient(45deg,
+      #be1c1c,
+      #be1c1c 1.7px,
+      transparent 1.7px,
+      transparent 6px),
+    repeating-linear-gradient(-45deg,
+      #be1c1c,
+      #be1c1c 1.7px,
+      transparent 1.7px,
+      transparent 6px);
+  border-radius: 10px;
+  box-shadow:
+    inset 0 0 0 6px #f4e8d4,
+    0 2px 6px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* Card Corners */
 .card-corner {
   position: absolute;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.1;
   text-align: center;
   font-weight: bold;
@@ -162,11 +180,29 @@ button:hover {
   transform: rotate(180deg);
 }
 
-/* Diamond Center */
-.center-suit {
+
+
+.card-center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 2.5rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.face-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.face-card img {
+  width: 70px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }

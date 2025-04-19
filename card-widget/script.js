@@ -25,7 +25,21 @@ class Card {
         // ToDo: add middle component later
     }
 
+    #getFaceCardImage(rank, color) {
+        const lowerRank = rank.toLowerCase();
+        return `./faces/${lowerRank}_${color}.svg`;
+    }
+
     _render() {
+        const isFaceCard = ['J', 'Q', 'K'].includes(this.rank);
+
+        const centerContent = isFaceCard
+            ? `
+            <div class="face-card">
+                <img src="${this.#getFaceCardImage(this.rank, this.suit.color)}" alt="${this.rank}" />
+            </div>`
+            : `<div class="card-center">${this.suit.symbol}</div>`;
+
         this.element.innerHTML = `
         <div class="card-inner ">
             
@@ -34,6 +48,9 @@ class Card {
                     <div>${this.rank}</div>
                     <div>${this.suit.symbol}</div>
                 </div>
+
+                ${centerContent}
+                
                 <div class="card-corner bottom-right">
                     <div>${this.rank}</div>
                     <div>${this.suit.symbol}</div>
