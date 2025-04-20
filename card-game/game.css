@@ -1,0 +1,84 @@
+/* Reset and Base Styling */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Roboto Slab", serif;
+  background: url("https://img.freepik.com/free-vector/flat-design-poker-table-background_23-2151047002.jpg?t=st=1745098279~exp=1745101879~hmac=8c78eb0f8d2196586fb1b479f81ce0e601b927580d07e54309ca71310ce25828&w=1380")
+    no-repeat left center fixed;
+  background-size: cover;
+  color: #f4f4f4;
+  min-height: 100vh;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  backdrop-filter: brightness(0.85);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  color: #ffda77;
+  text-shadow: 2px 2px #000;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #ddd;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(to right, #ffcc70, #ffae42);
+  border: none;
+  padding: 0.7rem 1.5rem;
+  margin: 0 0.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(to right, #ffd700, #ff8c00);
+}
+
+.start-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 90vh;
+  text-align: center;
+}
+
+button.begin {
+  margin-top: 2rem;
+  font-size: 1.2rem;
+}
