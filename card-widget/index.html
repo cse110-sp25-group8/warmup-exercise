@@ -1,41 +1,42 @@
+<!-- This is the webpage to implement and show the functionalities such as flip all and reset as a seperate webpage -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>🃏 Card Widgets</title>
     <!-- your styles -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="widget.css" />
     <!-- Roboto Slab for card faces -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
-</head>
-<body>
-    <a href="homepage.html" class="home-button">Home</a>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <a href="../card-game/index.html" class="home-button">Home</a>
 
     <header>
-        <h1>🃏 Card Widgets</h1>
-        <p>
+      <h1>🃏 Card Widgets</h1>
+      <p>
         All cards are shown below. Click to flip; use the buttons to shuffle or
         flip all. Hit reset to unshuffle!
-        </p>
+      </p>
     </header>
 
     <div class="buttons">
-        <button class="shuffle">Shuffle</button>
-        <button class="flip">Flip All</button>
-        <!-- if we have time maybe a reset button? -->
-        <!-- <button class="reset">Reset</button> -->
-    
+      <button class="shuffle">Shuffle</button>
+      <button class="flip">Flip All</button>
+      <!-- if we have time maybe a reset button? -->
+      <!-- <button class="reset">Reset</button> -->
     </div>
 
-    <p class="count">
-        Card Count: <span id="card-count"></span>
-    </p>
+    <p class="count">Card Count: <span id="card-count"></span></p>
 
     <!-- cards will be injected here by script.js -->
     <div id="preview"></div>
 
     <!-- your functionality -->
-    <script src="script.js"></script>
-</body>
+    <script src="widget.js"></script>
+  </body>
 </html>

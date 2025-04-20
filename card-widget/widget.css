@@ -6,8 +6,9 @@
 }
 
 body {
-  font-family: 'Roboto Slab', serif;
-  background: url("https://img.freepik.com/free-vector/flat-design-poker-table-background_23-2151047002.jpg?t=st=1745098279~exp=1745101879~hmac=8c78eb0f8d2196586fb1b479f81ce0e601b927580d07e54309ca71310ce25828&w=1380") no-repeat left center fixed;
+  font-family: "Roboto Slab", serif;
+  background: url("https://img.freepik.com/free-vector/flat-design-poker-table-background_23-2151047002.jpg?t=st=1745098279~exp=1745101879~hmac=8c78eb0f8d2196586fb1b479f81ce0e601b927580d07e54309ca71310ce25828&w=1380")
+    no-repeat left center fixed;
   background-size: cover;
   color: #f4f4f4;
   min-height: 100vh;
@@ -32,7 +33,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column; /* optional, in case there are multiple elements */
+  flex-direction: column;
 }
 
 header h1 {
@@ -41,7 +42,7 @@ header h1 {
   color: #ffda77;
   text-shadow: 2px 2px #000;
 }
-  
+
 header p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
@@ -72,16 +73,6 @@ button:hover {
   background: linear-gradient(to right, #ffd700, #ff8c00);
 }
 
-.start-button {
-  display: flex;
-  justify-content: center;  /* horizontal center */
-  align-items: center;      /* vertical center */
-  flex-direction: column;   /* stack elements vertically */
-  height: 90vh;            /* make header fill the whole viewport height */
-  text-align: center;       /* center text inside elements */
-
-}
-
 .home-button {
   position: absolute;
   top: 20px;
@@ -100,7 +91,6 @@ button:hover {
 .home-button:hover {
   background-color: #ffc107;
 }
-
 
 /* Card Count */
 .count {
@@ -140,14 +130,15 @@ button:hover {
 }
 
 /* Card Faces */
-.card-front, .card-back {
+.card-front,
+.card-back {
   position: absolute;
   width: 100%;
   height: 100%;
   backface-visibility: hidden;
   border-radius: 12px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
-  font-family: 'Roboto Slab', serif;
+  font-family: "Roboto Slab", serif;
 }
 
 /* Card Front (Diamond) */
