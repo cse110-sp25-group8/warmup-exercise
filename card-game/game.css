@@ -82,3 +82,15 @@ button.begin {
   margin-top: 2rem;
   font-size: 1.2rem;
 }
+
+.hand {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+.score {
+  margin-bottom: 20px;
+}
