@@ -35,12 +35,12 @@
           .play()
           .then(() => {
             sound.addEventListener("ended", () => {
-              window.location.href = "./card-widget/index.html";
+              window.location.href = "../card-widget/index.html";
             });
           })
           .catch(() => {
             // If audio fails to play, redirect immediately
-            window.location.href = "./card-widget/index.html";
+            window.location.href = "../card-widget/index.html";
           });
       });
     </script>
