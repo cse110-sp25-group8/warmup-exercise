@@ -1,1 +1,43 @@
-<!-- This is for the actual game play webpage -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blackjack Table</title>
+    <link rel="stylesheet" href="./game.css" />
+    <link rel="stylesheet" href="../shared/style.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header>
+      <h1>🃏 Blackjack Table</h1>
+    </header>
+
+    <main>
+      <section id="dealer-section">
+        <h2>Dealer</h2>
+        <div id="dealer-hand" class="hand"></div>
+        <div id="dealer-score" class="score"></div>
+      </section>
+
+      <section id="player-section">
+        <h2>You</h2>
+        <div id="player-hand" class="hand"></div>
+        <div id="player-score" class="score"></div>
+      </section>
+
+      <section id="controls">
+        <button id="start-button">Start Game</button>
+        <button id="hit-button" disabled>Hit</button>
+        <button id="stand-button" disabled>Stand</button>
+      </section>
+    </main>
+
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

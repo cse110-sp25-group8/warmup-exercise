@@ -158,12 +158,10 @@ export function main() {
     const flipAllBtn = document.querySelector(".flip");
     const cardCountDisplay = document.getElementById("card-count");
 
-    // 초기 카드 표시
     renderDeck(deck, preview);
     cardCountDisplay.textContent = deck.cards.length;
     console.log(deck.cards.length);
 
-    // 버튼 이벤트 등록
     shuffleBtn.addEventListener("click", () => {
         deck.shuffle();
         renderDeck(deck, preview);
