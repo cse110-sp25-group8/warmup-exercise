@@ -5,7 +5,7 @@ class Blackjack {
      * Represents the state of the Blackjack game
      * @constructor
      */
-    constrcutor() {
+    constructor() {
         this.playerHand = [];
         this.dealerHand = [];
         this.playerScore = 0;
@@ -21,8 +21,7 @@ class Blackjack {
     /**
      *  A reusable function to set-up the start of a new Blackjack game.
      */
-    startGame()
-    {
+    startGame() {
         this.gameDeck.shuffle();
 
         this.playerHand.push(this.gameDeck.cards[0]);
@@ -69,6 +68,6 @@ class Blackjack {
      *  Update the side's score. Note that the dealer's score should not be publicly visible.
      */
     updateScore() {
-        
+
     }
 }
