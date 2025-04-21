@@ -23,7 +23,7 @@ export class Card {
 
     #getFaceCardImage(rank, color) {
         const lowerRank = rank.toLowerCase();
-        return `./faces/${lowerRank}_${color}.svg`;
+        return `../shared/faces/${lowerRank}_${color}.svg`;
     }
 
     _render() {
@@ -69,7 +69,10 @@ export class Card {
      *  If the card is hided, reveal
      */
     reveal() {
-        if (!this.faceUp) this.flip();
+        if (!this.faceUp) {
+            // Force a reflow to ensure flip animation is applied
+            requestAnimationFrame(() => this.flip());
+        }
     }
 
     /** 
@@ -79,3 +82,9 @@ export class Card {
         if (this.faceUp) this.flip();
     }
 }
+
+
+
+
+
+
