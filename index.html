@@ -1,0 +1,46 @@
+<!-- This is for the homepage interaction webpage -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🃏 Black Jack</title>
+
+  <!-- your styles -->
+  <link rel="stylesheet" href="/card-game/game.css" />
+  <!-- Roboto Slab for card faces -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <header class="start-button">
+    <h1>🃏 Black Jack</h1>
+    <p>LET'S GO GAMBLING</p>
+    <button class="begin" id="tableButton">Take me to the table!</button>
+  </header>
+
+  <script>
+    const button = document.getElementById("tableButton");
+    const sound = new Audio("../assets/audios/lets-go-gambling.mp3");
+    sound.volume = 0.3; // reduced the audio volume because it's too loud..
+
+    button.addEventListener("click", function (e) {
+      e.preventDefault();
+      sound.currentTime = 0;
+      sound
+        .play()
+        .then(() => {
+          sound.addEventListener("ended", () => {
+            window.location.href = "/card-widget/index.html";
+          });
+        })
+        .catch(() => {
+          // If audio fails to play, redirect immediately
+          window.location.href = "/card-widget/index.html";
+        });
+    });
+  </script>
+</body>
+
+</html>
