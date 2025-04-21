@@ -17,7 +17,7 @@ export class Card {
 
         this._render();
         this.element.classList.toggle('flipped', !this.faceUp);
-        this.element.addEventListener("click", () => this.flip());
+        // this.element.addEventListener("click", () => this.flip());
     }
 
 
