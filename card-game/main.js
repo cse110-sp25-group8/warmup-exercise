@@ -20,6 +20,11 @@ hitButton.addEventListener("click", () => {
   const result = game.hit();
   updateUI();
 
+  const { player, dealer } = game.getScores();
+  if (player == 21) {
+    endGame("You win!");
+  }
+
   if (result?.busted) {
     endGame("You busted! Dealer wins.");
   }
@@ -72,7 +77,7 @@ function endGame(message) {
 function checkWinner() {
   const { player, dealer } = game.getScores();
 
-  if (dealer > 21 || player > dealer) {
+  if (dealer > 21 || player > dealer || player == 21) {
     endGame("You win!");
   } else if (player === dealer) {
     endGame("Push! It's a tie.");
