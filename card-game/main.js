@@ -14,6 +14,11 @@ startButton.addEventListener("click", () => {
   game.startGame();
   updateUI();
   enableControls();
+
+  const { player, dealer } = game.getScores();
+  if (player == 21) {
+    endGame("You win!");
+  }
 });
 
 hitButton.addEventListener("click", () => {
